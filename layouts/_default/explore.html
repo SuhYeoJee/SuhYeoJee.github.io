@@ -48,9 +48,9 @@
         <h2 style="margin-bottom: 20px;">Tags</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 10px;">
             {{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
-            <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/" style="padding: 8px 15px; background: var(--tertiary); border-radius: 8px;">
-                #{{ $name }}
-            </a>
+                <a href="{{ "/series/" | relLangURL }}{{ $name | urlize }}/" style="padding: 8px 15px; background: var(--tertiary); border-radius: 8px;">
+                    {{ $name }} <span style="font-size: 0.8em; opacity: 0.6;">({{ $taxonomy.Count }})</span>
+                </a>
             {{- end -}}
         </div>
     </section>
