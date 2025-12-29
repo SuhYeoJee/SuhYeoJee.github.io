@@ -1,0 +1,11 @@
+# Hugo가 빌드할 때 만드는 임시 폴더
+public/
+resources/_gen/
+.hugo_build.cfg
+
+# 운영체제 생성 파일
+Thumbs.db
+.DS_Store
+
+# 에디터 관련 설정
+.vscode/
