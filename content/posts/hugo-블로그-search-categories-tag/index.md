@@ -4,7 +4,7 @@ description: ""
 date: 2025-12-29T08:52:43.162Z
 preview: ""
 tags: ["Hugo", "PaperMod", "Search", "Categories"]
-categories: ["Tech"]
+categories: ["Manual"]
 series: ["Hugo 블로그 세팅"]
 ---
 

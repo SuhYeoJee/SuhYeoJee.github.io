@@ -10,7 +10,7 @@ tags:
     - UI
     - TOC
 categories:
-    - Tech
+    - Manual
 series: ["Hugo 블로그 세팅"]
 ---
 

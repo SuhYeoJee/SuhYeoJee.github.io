@@ -4,9 +4,8 @@ description: ""
 date: 2025-12-29T10:19:24.000Z
 preview: ""
 tags: ["Hugo", "UX", "Layout", "Partial"]
-categories: ["Tech"]
+categories: ["Manual"]
 series: ["Hugo 블로그 세팅"]
-draft: false
 ---
 
 이것저것 만드니까 더러워서 합쳐달라고 함. 

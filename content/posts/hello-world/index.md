@@ -1,12 +1,12 @@
 ---
-title: hello-world
+title: Hugo 블로그 설치
 date: 2025-12-29T08:12:02.932Z
 tags:
     - Hugo
     - GitHub Pages
     - Blog
 categories:
-    - Tech
+    - Manual
 description: Hugo 블로그 생성
 series: ["Hugo 블로그 세팅"]
 ---

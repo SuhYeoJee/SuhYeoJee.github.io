@@ -3,9 +3,8 @@ title: Hugo 블로그 Series
 description: ""
 date: 2025-12-29T09:44:30.991Z
 preview: ""
-draft: true
 tags: ["Hugo", "PaperMod", "Series", "Layout", "UI"]
-categories: ["Tech"]
+categories: ["Manual"]
 series: ["Hugo 블로그 세팅"]
 ---
 
