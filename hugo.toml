@@ -5,6 +5,8 @@ theme = "PaperMod"
 
 [params]
     ShowCodeCopyButtons = true
+    showToc = true           # 모든 포스트에 목차 표시
+    TocOpen = false          # 페이지 로드 시 목차를 펼쳐둘지 여부
 
 [outputs]
     home = ["HTML", "RSS", "JSON"] # 검색용 JSON 파일 생성을 위해 필수

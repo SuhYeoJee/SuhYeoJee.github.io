@@ -1,5 +1,5 @@
 ---
-title: Hugo 블로그 CodeCopyButtons, Archives
+title: Hugo 블로그 CodeCopyButtons, Archives, Toc
 description: ""
 date: 2025-12-29T09:03:41.176Z
 preview: ""
@@ -8,6 +8,7 @@ tags:
     - PaperMod
     - Archive
     - UI
+    - TOC
 categories:
     - Tech
 ---
@@ -29,9 +30,25 @@ PaperMod 테마는 코드 복사 기능을 내장하고 있습니다. 설정 파
     ShowCodeCopyButtons = true # 코드 복사 버튼 활성화
 ```
 
+## 2. 목차 (Table of Contents) 활성화
+
+글의 구조를 한눈에 파악할 수 있도록 목차 기능을 켰습니다.
+
+### 설정 방법
+`hugo.toml`의 `[params]` 섹션에 아래 설정을 추가합니다.
+
+```toml
+[params]
+    showToc = true           # 모든 포스트에 목차 표시
+    TocOpen = false          # 페이지 로드 시 목차를 펼쳐둘지 여부
+```
+
+특정 포스트에서만 목차를 끄고 싶다면, 해당 글의 상단(`Front Matter`)에 `showToc: false`를 적어주면 됩니다.
+
+
 ---
 
-## 2. 아카이브(Archive) 페이지 추가
+## 3. 아카이브(Archive) 페이지 추가
 
 작성한 모든 글을 연도별로 모아볼 수 있는 아카이브 페이지를 생성합니다.
 
@@ -73,7 +90,7 @@ summary: "archives"
 
 ```powershell
 git add .
-git commit -m "feat: Add Archive page and enable Code Copy button"
+git commit -m "feat: Add Archive page and enable Code Copy button, TOC."
 git push origin main
 ```
 
