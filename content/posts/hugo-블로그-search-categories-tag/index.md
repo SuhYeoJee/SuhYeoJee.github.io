@@ -3,7 +3,6 @@ title: Hugo 블로그 Search, Categories, Tag
 description: ""
 date: 2025-12-29T08:52:43.162Z
 preview: ""
-draft: true
 tags: ["Hugo", "PaperMod", "Search", "Categories"]
 categories: ["Tech"]
 ---
