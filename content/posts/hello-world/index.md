@@ -8,6 +8,7 @@ tags:
 categories:
     - Tech
 description: Hugo 블로그 생성
+series: ["Hugo 블로그 세팅"]
 ---
 
 Jekyll에서 Hugo로 갈아탔다. 사유는 여러모로 관리하기 편해 보여서.

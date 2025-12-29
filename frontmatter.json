@@ -42,6 +42,12 @@
           "title": "Categories",
           "name": "categories",
           "type": "categories"
+        },
+        {
+          "title": "series",
+          "name": "series",
+          "type": "taxonomy",
+          "taxonomyId": "series"
         }
       ]
     }

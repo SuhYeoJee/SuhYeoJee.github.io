@@ -11,6 +11,7 @@ tags:
     - TOC
 categories:
     - Tech
+series: ["Hugo 블로그 세팅"]
 ---
 
 
