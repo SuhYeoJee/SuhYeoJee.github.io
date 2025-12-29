@@ -3,6 +3,9 @@ languageCode = 'ko-kr'
 title = 'ROTOMU'
 theme = "PaperMod"
 
+[params]
+    ShowCodeCopyButtons = true
+
 [outputs]
     home = ["HTML", "RSS", "JSON"] # 검색용 JSON 파일 생성을 위해 필수
 
@@ -23,3 +26,9 @@ theme = "PaperMod"
     name = "Tags"
     url = "/tags/"
     weight = 30
+
+[[menu.main]]
+    identifier = "archives"
+    name = "Archive"
+    url = "/archives/"
+    weight = 40
