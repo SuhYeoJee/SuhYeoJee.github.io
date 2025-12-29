@@ -17,22 +17,28 @@ theme = "PaperMod"
     home = ["HTML", "RSS", "JSON"] # 검색용 JSON 파일 생성을 위해 필수
 
 [[menu.main]]
-    identifier = "search"
-    name = "Search"
-    url = "/search/"
-    weight = 10
+    identifier = "explore"
+    name = "Explore"
+    url = "/explore/"
+    weight = 5
 
-[[menu.main]]
-    identifier = "categories"
-    name = "Categories"
-    url = "/categories/"
-    weight = 20
+# [[menu.main]]
+#     identifier = "search"
+#     name = "Search"
+#     url = "/search/"
+#     weight = 10
 
-[[menu.main]]
-    identifier = "tags"
-    name = "Tags"
-    url = "/tags/"
-    weight = 30
+# [[menu.main]]
+#     identifier = "categories"
+#     name = "Categories"
+#     url = "/categories/"
+#     weight = 20
+
+# [[menu.main]]
+#     identifier = "tags"
+#     name = "Tags"
+#     url = "/tags/"
+#     weight = 30
 
 [[menu.main]]
     identifier = "archives"

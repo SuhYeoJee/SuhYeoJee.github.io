@@ -1,0 +1,59 @@
+{{- define "main" -}}
+
+<header class="page-header">
+    <h1>Explore</h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description }}
+  </div>
+  {{- end }}
+  <p>　</p>
+</header>
+
+<div class="explore-container">
+    <section style="margin-bottom: 50px;">
+        <h2 style="margin-bottom: 20px;">Search</h2>
+        {{- partial "search_box.html" . -}} 
+        </section>
+
+    <hr style="border: 0; border-top: 1px solid var(--border); margin: 40px 0;">
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+        <section>
+            <h2 style="margin-bottom: 20px;">Categories</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                {{- range $name, $taxonomy := .Site.Taxonomies.categories -}}
+                <a href="{{ "/categories/" | relLangURL }}{{ $name | urlize }}/" style="padding: 8px 15px; background: var(--code-bg); border-radius: 8px; border: 1px solid var(--border);">
+                    {{ $name }} <span style="font-size: 0.8em; opacity: 0.6;">({{ $taxonomy.Count }})</span>
+                </a>
+                {{- end -}}
+            </div>
+        </section>
+
+        <section>
+            <h2 style="margin-bottom: 20px;">Series</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                {{- range $name, $taxonomy := .Site.Taxonomies.series -}}
+                <a href="{{ "/series/" | relLangURL }}{{ $name | urlize }}/" style="padding: 8px 15px; background: var(--tertiary); border-radius: 8px;">
+                    {{ $name }} <span style="font-size: 0.8em; opacity: 0.6;">({{ $taxonomy.Count }})</span>
+                </a>
+                {{- end -}}
+            </div>
+        </section>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid var(--border); margin: 40px 0;">
+
+    <section>
+        <h2 style="margin-bottom: 20px;">Tags</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            {{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
+            <a href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}/" style="padding: 8px 15px; background: var(--tertiary); border-radius: 8px;">
+                #{{ $name }}
+            </a>
+            {{- end -}}
+        </div>
+    </section>
+</div>
+
+{{- end -}}
