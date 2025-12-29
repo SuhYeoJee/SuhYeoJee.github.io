@@ -10,57 +10,56 @@ categories:
 description: Hugo 블로그 생성
 ---
 
-Jekyll에서 Hugo로 갈아탔다.  
-사유는 여러모로 관리하기 편해보여서.  
+Jekyll에서 Hugo로 갈아탔다. 사유는 여러모로 관리하기 편해 보여서.
 
-> 환경: win11
+> 💻 **환경**: Windows 11
 
+---
 
-#### hugo 설치
+### 📑 목차
+1. [Hugo 설치](#1-hugo-설치)
+2. [블로그 프로젝트 생성](#2-블로그-프로젝트-생성)
+3. [깃 초기화 및 테마 다운로드](#3-깃-초기화-및-테마-다운로드)
+4. [VSCode 확장기능 설치](#4-vscode-확장기능-설치)
+5. [GitHub Pages로 배포](#5-github-pages로-배포)
+6. [GitHub Actions 자동 배포 설정](#6-github-actions-자동-배포-설정)
 
-터미널을 관리자 권한으로 실행 후 진행  
+---
 
-```
+### 1. Hugo 설치
+터미널을 **관리자 권한**으로 실행 후 진행합니다.
+
+```bash
 choco install hugo-extended
 ```
 
-설치 확인 -> `hugo version`  
+* **설치 확인**: `hugo version`
+* **현재 버전**: `v0.153.3`
 
-> v0.153.3
+### 2. 블로그 프로젝트 생성
+현재 터미널 위치에 하위 폴더로 생성합니다.
 
-
-#### 블로그 프로젝트 생성
-
-현재 터미널 위치에 하위 폴더로 생성
-
-```
+```bash
 hugo new site blog_name
 cd blog_name
 ```
 
-#### 깃 초기화, 테마 다운로드
-
-```
+### 3. 깃 초기화 및 테마 다운로드
+```bash
 git init
 git submodule add https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
 
 echo 'theme = "PaperMod"' >> hugo.toml
 ```
 
-echo 사용시 전각문자를 사용하여 오류가 발생하는 경우  
-`hugo.toml` 파일에 `theme = "PaperMod"`를 수동으로 추가함.  
+* **주의**: `echo` 사용 시 전각문자로 인해 오류가 발생하면 `hugo.toml` 파일에 `theme = "PaperMod"`를 **수동으로 추가**합니다.
+* **로컬 확인**: `hugo server -D` 실행 후 `http://localhost:1313/` 접속해서 테마 적용 확인
+* **선택사항**: 테마 수정 편의를 위해 `themes/PaperMod` 내의 `.git` 폴더 삭제 가능
 
-`hugo server -D`로 로컬 서버 실행 후  
-`http://localhost:1313/` 접속해서 테마 적용 확인  
+#### 📄 .gitignore 설정
+프로젝트 루트 위치에 아래 내용으로 추가합니다.
 
-
-> 선택사항: `themes/PaperMod`에서 해당 테마의 `.git`폴더 삭제.  
-> 테마 수정시 버전관리 어려움  
-
-
-프로젝트 루트 위치에 아래 내용으로 `.gitignore`추가
-
-```
+```text
 # Hugo가 빌드할 때 만드는 임시 폴더
 public/
 resources/_gen/
@@ -74,22 +73,14 @@ Thumbs.db
 .vscode/
 ```
 
+### 4. VSCode 확장기능 설치
+`Front Matter CMS`를 설치합니다. 프로젝트 초기화, 폴더 추가(/content/posts), 대시보드를 구성합니다.
 
-#### VScode 확장기능 설치
+* **frontmatter.json 수정**: 
+    * `"pageBundle": true` 설정 (새 포스트 추가 시 폴더+index.md 형식으로 생성)
+* **경로 설정 추가**:
 
-`Front Matter CMS` 설치.  
-프로젝트 초기화, 폴더 추가(/content/posts), 대시보드 구성
-
-
-프로젝트 루트에 생성되는 `frontmatter.json` 수정  
-
-> `frontMatter.taxonomy.contentTypes` -> `"pageBundle": true`  
-
-posts에 새 포스트를 추가할 때 폴더+index.md형식으로 생성하도록함.   
-
-같은 파일에 아래 내용 추가   
-
-```
+```json
   "frontMatter.content.pageFolders": [
     {
       "path": "[[workspace]]/content/posts",
@@ -100,49 +91,29 @@ posts에 새 포스트를 추가할 때 폴더+index.md형식으로 생성하도
   ]
 ```
 
-파일 생성시 이름 규칙에 prefix삭제,   
-페이지 미리보기 path에 posts추가.  
+### 5. GitHub Pages로 배포
+GitHub 새 공개 레포지토리 `깃허브아이디.github.io`를 생성하고 주소를 복사합니다.
 
-
-#### git pages로 배포
-
-github 새 공개 레포 생성 `깃허브아이디.github.io`   
-레포 생성 후 주소 복사.   
-
-프로젝트 폴더 내에서 깃허브와 연결   
-
-```
+```bash
 git config --global --add safe.directory 프로젝트_루트디렉토리
 git remote add origin 복사한_레포_주소
-```
 
-현재상태 푸시
-
-```
 git add .
 git commit -m "First blog setup"
 git branch -M main
 git push -u origin main
 ```
 
-#### github actions로 자동 배포 설정
+### 6. GitHub Actions 자동 배포 설정
+1.  **GitHub Repo Settings**:
+    * `Actions > General`: Workflow permissions을 **Read and write permissions**로 변경 후 Save
+    * `Pages > Build and deployment`: Source를 **GitHub Actions**로 설정
+2.  **hugo.toml**: `baseURL`을 `https://깃허브아이디.github.io/`로 변경
 
-github의 레포 settings에서 
+#### 📄 .github/workflows/hugo.yaml 생성
+프로젝트 루트에서 폴더 생성 후 아래 내용으로 파일을 만듭니다.
 
-Actions > General > Workflow permissions을  
-`Read and write permissions` 으로 변경하고 save.  
-
-Pages > Build and deployment의 Source를 `GitHubActions`으로 설정.  
-
-
-프로젝트 루트 경로의 `hugo.toml`파일의  
-`baseURL`을 `https://깃허브아이디.github.io/`로 변경  
-
-
-프로젝트 루트에서 .github/workflows 폴더 생성.   
-하위에 `hugo.yaml`를 아래 내용으로 생성  
-
-```
+```yaml
 name: deploy-hugo-site
 on:
   push:
@@ -180,9 +151,8 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-설정 수정사항 푸시
-
-```
+#### ✨ 최종 푸시
+```bash
 git add .
 git commit -m "First Build and Deploy"
 git push -u origin main
