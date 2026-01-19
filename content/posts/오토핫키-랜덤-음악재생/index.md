@@ -3,7 +3,6 @@ title: AutoHotkey 60:40 확률형 랜덤 mp3 플레이어
 description: ""
 date: 2026-01-19T08:21:17.323Z
 preview: ""
-draft: false
 tags: ["AutoHotkey"]
 categories: []
 series: []
