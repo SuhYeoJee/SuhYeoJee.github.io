@@ -3,6 +3,9 @@ languageCode = 'ko-kr'
 title = 'ROTOMU'
 theme = "PaperMod"
 
+[author]
+  name = "SuhYeoJee"
+
 [params]
     ShowCodeCopyButtons = true
     showToc = true           # 모든 포스트에 목차 표시
