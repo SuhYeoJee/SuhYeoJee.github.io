@@ -4,8 +4,8 @@ description: ""
 date: 2026-01-19T08:21:17.323Z
 preview: ""
 tags: ["AutoHotkey"]
-categories: []
-series: []
+categories: ["Utility"]
+series: ["AutoHotkey 유틸리티"]
 ---
 
 
