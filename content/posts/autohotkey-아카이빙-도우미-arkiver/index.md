@@ -3,7 +3,6 @@ title: AutoHotkey 아카이빙 도우미 Arkiver
 description: ""
 date: 2026-03-26T06:28:30.258Z
 preview: ""
-draft: true
 tags:
     - AutoHotkey
 categories:
