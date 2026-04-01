@@ -3,7 +3,6 @@ title: FlexiPLC - PlcTag 리팩토링
 description: ObservableObject과 record
 date: 2026-04-01T02:39:22.833Z
 preview: ""
-draft: true
 tags:
     - C#
 categories:
