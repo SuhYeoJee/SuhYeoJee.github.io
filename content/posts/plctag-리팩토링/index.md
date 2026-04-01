@@ -132,6 +132,12 @@ partial void OnValueChanged(object? value)
 
 - **값 동등성**: 같은 필드 값이면 `Equals` / `GetHashCode`가 같게 동작(참조 동등이 아님).
 - **`with` 표현식**: 일부만 바꾼 복사본을 만들기 쉬움.
+
+``` csharp
+// 이름만 바꾸고 나머지는 똑같은 설정을 만들 때
+var newConfig = config with { Name = "NEW_TEMP_PV" };
+```
+
 - 의미론적으로 “식별자는 타입+키, 나머지는 속성” 같은 **DTO·설정 스냅샷**에 잘 맞습니다.
 
 ### 활용법 (`TagConfig` 예시)
@@ -153,6 +159,8 @@ public record TagConfig(
 - **접근**: `config.Name`, `config.ScalingDecimals` — 컴파일러가 만든 init 전용 프로퍼티입니다(위치 매개변수 `record`).
 
 `PlcTag`에서는 `public TagConfig Config { get; init; }`처럼 **객체 생성 후에는 Config 참조 자체를 바꾸지 않는** 형태로 쓸 수 있습니다. “설정”과 “라이브 상태”의 경계가 타입 수준에서 드러납니다.
+
+
 
 ---
 
