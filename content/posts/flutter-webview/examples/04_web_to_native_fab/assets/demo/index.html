@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAB Demo — Home</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; line-height: 1.6; }
+    a { display: block; margin: 12px 0; }
+    .on { background: #e8f5e9; padding: 12px; border-radius: 8px; }
+    .off { background: #f5f5f5; padding: 12px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>웹 → 네이티브 FAB</h1>
+  <p>URL 쿼리 <code>?feature=timer</code> 가 있으면 타이머 FAB가 보인다.</p>
+  <div class="off">
+    <strong>FAB 숨김</strong>
+    <a href="index.html">일반 홈 (쿼리 없음)</a>
+  </div>
+  <div class="on">
+    <strong>FAB 표시</strong>
+    <a href="index.html?feature=timer">타이머 기능 켜기</a>
+    <a href="tools.html?feature=timer">도구 페이지 (타이머)</a>
+  </div>
+</body>
+</html>
