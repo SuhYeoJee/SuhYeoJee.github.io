@@ -13,14 +13,14 @@ categories:
 series: ["Flutter WebView 앱"]
 ---
 
-# 개요
+## 개요
 
 2세대 템플릿은 `flutter_inappwebview`였고, 3세대는 다시 `webview_flutter`로 돌아왔다.
 이 편은 **별도 예제 없이** 마이그레이션 때 기억할 매핑만 정리한다.
 
 ---
 
-# 왜 갈아탔나 (당시 기준)
+## 왜 갈아탔나 (당시 기준)
 
 - `webview_flutter` 4.x API 정리됨 (`WebViewController` 단일 객체)
 - 팀이 이미 1세대·3세대에 익숙
@@ -31,7 +31,7 @@ series: ["Flutter WebView 앱"]
 
 ---
 
-# API 매핑表
+## API 매핑表
 
 | inappwebview | webview_flutter 4.x |
 |--------------|---------------------|
@@ -46,7 +46,7 @@ series: ["Flutter WebView 앱"]
 
 ---
 
-# 가로채기 예시 비교
+## 가로채기 예시 비교
 
 **inappwebview (2세대 스타일)**
 
@@ -77,7 +77,7 @@ onNavigationRequest: (request) {
 
 ---
 
-# 서브 WebView / 팝업 창
+## 서브 WebView / 팝업 창
 
 inappwebview는 `onCreateWindow`로 팝업을 받을 수 있다.
 webview_flutter만 쓰면 선택지가 줄어든다.
@@ -90,7 +90,7 @@ webview_flutter만 쓰면 선택지가 줄어든다.
 
 ---
 
-# WillPopScope → PopScope
+## WillPopScope → PopScope
 
 구버전 코드에 `WillPopScope`가 많다. 새 프로젝트는 `PopScope` 권장.
 
@@ -107,7 +107,7 @@ PopScope(
 
 ---
 
-# 체크리스트 (마이그레이션 때)
+## 체크리스트 (마이그레이션 때)
 
 - [ ] `WebViewController` 생성 시점 vs `loadRequest` 시점 분리
 - [ ] `NavigationDelegate`에서 tel / 외부 도메인 분기
@@ -118,7 +118,7 @@ PopScope(
 
 ---
 
-# 언제 inappwebview를 아직 쓸까
+## 언제 inappwebview를 아직 쓸까
 
 - `onCreateWindow` / 멀티 윈도우가 필수
 - WebView 안에서 파일 업로드·인증서 등 **고급 브라우저 기능** 필요

@@ -14,7 +14,7 @@ categories:
 series: ["Python 자동화 아카이브"]
 ---
 
-# 개요
+## 개요
 
 검색 결과 순위를 **requests + BeautifulSoup**으로 파싱하는 패턴이다.
 7편 Selenium과 목적은 같지만, 브라우저 없이 정적 HTML·내부 검색 API 응답만으로 처리한다.
@@ -25,7 +25,7 @@ I/O 대기가 많아 **multiprocessing**으로 키워드를 병렬 조회하는 
 
 ---
 
-# 처리 흐름
+## 처리 흐름
 
 ```
 targets.txt (키워드\tURL)
@@ -41,7 +41,7 @@ output.txt / DB 저장
 
 ---
 
-# HTTP 요청
+## HTTP 요청
 
 User-Agent·Referer를 넣지 않으면 403이 나는 경우가 많다.
 
@@ -69,7 +69,7 @@ def fetch_search_html(keyword: str, page: int = 1) -> str:
 
 ---
 
-# HTML 파싱
+## HTML 파싱
 
 ```python
 from bs4 import BeautifulSoup
@@ -91,7 +91,7 @@ def parse_result_links(html: str) -> list[str]:
 
 ---
 
-# URL 매칭
+## URL 매칭
 
 동일 페이지라도 URL 형식이 여러 가지일 수 있다. 쿼리 파라미터나 path 일부만 비교한다.
 
@@ -113,7 +113,7 @@ def url_matches(target: str, href: str) -> bool:
 
 ---
 
-# 깊은 순위 (페이지네이션)
+## 깊은 순위 (페이지네이션)
 
 한 페이지에 15건만 있으면, 목표 URL이 안 나올 때까지 `start` 파라미터를 올리며 요청한다.
 
@@ -136,7 +136,7 @@ def find_rank_http(keyword: str, target_url: str, max_pages: int = 7) -> int:
 
 ---
 
-# 키워드 보정 감지 (선택)
+## 키워드 보정 감지 (선택)
 
 검색 엔진이 「○○으로 검색한 결과」처럼 키워드를 바꿔 보여주면, 보정된 키워드로 다시 요청해야 한다.
 
@@ -157,7 +157,7 @@ def detect_corrected_keyword(html: str) -> str | None:
 
 ---
 
-# multiprocessing 병렬
+## multiprocessing 병렬
 
 키워드마다 독립 HTTP 호출이므로 프로세스 풀에 적합하다.
 
@@ -182,7 +182,7 @@ def run_parallel(targets: list[tuple[str, str]], workers: int = 8) -> list[dict]
 
 ---
 
-# 결과 기록
+## 결과 기록
 
 ```python
 from pathlib import Path
@@ -198,7 +198,7 @@ def write_outputs(results: list[dict], path: str) -> None:
 
 ---
 
-# 7편과 비교
+## 7편과 비교
 
 | 항목 | Selenium (7편) | HTTP (현재) |
 |------|----------------|-------------|
@@ -209,7 +209,7 @@ def write_outputs(results: list[dict], path: str) -> None:
 
 ---
 
-# 주의사항
+## 주의사항
 
 - **Rate limit** — 병렬도·sleep으로 조절
 - **API 비공개** — 내부 XHR URL은 문서화되지 않아 깨지기 쉬움

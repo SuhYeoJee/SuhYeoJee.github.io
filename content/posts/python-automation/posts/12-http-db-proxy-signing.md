@@ -14,7 +14,7 @@ categories:
 series: ["Python 자동화 아카이브"]
 ---
 
-# 개요
+## 개요
 
 배치 PC가 DB에 **직접 연결하지 않고**, 웹 서버의 HTTP API를 통해 SELECT·INSERT를 수행하는 패턴이다.
 
@@ -26,7 +26,7 @@ series: ["Python 자동화 아카이브"]
 
 ---
 
-# 처리 흐름
+## 처리 흐름
 
 ```
 배치 PC (Python requests)
@@ -42,7 +42,7 @@ DB 포트(3306 등)를 인터넷에 열지 않아도 된다.
 
 ---
 
-# 9편과의 위치
+## 9편과의 위치
 
 | 편 | 저장소 접근 |
 |----|-------------|
@@ -53,7 +53,7 @@ DB 포트(3306 등)를 인터넷에 열지 않아도 된다.
 
 ---
 
-# 요청 서명
+## 요청 서명
 
 클라이언트가 보낸 요청이 위·변조되지 않았음을 서버가 확인한다. 단순 패턴은 **timestamp + 공유 salt → 해시**다.
 
@@ -76,7 +76,7 @@ def make_signature() -> tuple[int, str]:
 
 ---
 
-# SELECT 페이징
+## SELECT 페이징
 
 대량 행은 `LIMIT` / `OFFSET`으로 나눠 받는다.
 
@@ -118,7 +118,7 @@ def db_select_all(page_size: int = 1000) -> list[dict]:
 
 ---
 
-# INSERT / upsert
+## INSERT / upsert
 
 ```python
 def db_upsert(row: dict) -> None:
@@ -141,7 +141,7 @@ def db_upsert(row: dict) -> None:
 
 ---
 
-# 서버 측 검증 (개념)
+## 서버 측 검증 (개념)
 
 서버(PHP, FastAPI 등)에서 수행할 일:
 
@@ -154,7 +154,7 @@ def db_upsert(row: dict) -> None:
 
 ---
 
-# 오류 처리
+## 오류 처리
 
 ```python
 def db_request(payload: dict) -> dict | list:
@@ -173,7 +173,7 @@ HTTP 상태·JSON `error` 필드를 구분해 로그에 남긴다.
 
 ---
 
-# 다운스트림 배치 예시
+## 다운스트림 배치 예시
 
 ```
 9편 TSV ingest (로컬)  ──HTTP upsert──►  원격 DB (targets)
@@ -186,7 +186,7 @@ HTTP 상태·JSON `error` 필드를 구분해 로그에 남긴다.
 
 ---
 
-# 주의사항
+## 주의사항
 
 - **raw SQL POST** — 레거시에 있을 수 있으나 신규에는 비권장
 - **HTTPS** — 서명·데이터 노출 방지

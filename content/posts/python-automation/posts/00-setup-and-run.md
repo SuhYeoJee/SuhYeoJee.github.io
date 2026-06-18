@@ -13,14 +13,14 @@ categories:
 series: ["Python 자동화 아카이브"]
 ---
 
-# 개요
+## 개요
 
 이 시리즈는 별도 예제 프로젝트 없이, 각 글 본문의 코드 블록을 복사해 실행하는 방식이다.
 시리즈 스니펫을 돌리기 위한 최소 환경을 정리한다. 데모용 호스트·도메인·계정만 사용한다.
 
 ---
 
-# Python 설치
+## Python 설치
 
 Windows 기준으로 3.10 이상을 설치한다. 설치 마법사에서 **"Add python.exe to PATH"**를 반드시 체크해야 터미널 어디서든 `python` 명령을 쓸 수 있다.
 
@@ -33,7 +33,7 @@ pip --version
 
 ---
 
-# 가상환경 (권장)
+## 가상환경 (권장)
 
 스크립트마다 패키지 버전이 달라질 수 있으므로, 작업 폴더 안에 가상환경을 만드는 것을 권장한다.
 아래 명령은 작업 디렉터리 생성 → venv 생성 → 활성화 → 의존성 설치 순서다.
@@ -57,7 +57,7 @@ pip install requests paramiko google-play-scraper openai selenium webdriver-mana
 
 ---
 
-# 스니펫 실행 방법
+## 스니펫 실행 방법
 
 각 글의 코드 블록을 하나의 파일로 합쳐 저장한 뒤 실행한다. 파일명은 자유지만 `monitor.py`처럼 역할이 드러나게 짓는 편이 관리하기 쉽다.
 
@@ -70,7 +70,7 @@ python monitor.py
 
 ---
 
-# 환경 변수
+## 환경 변수
 
 API 토큰, SSH 키 경로 같은 비밀 값은 소스 코드에 넣지 않고 셸 환경 변수로 전달한다.
 Windows PowerShell·cmd에서는 `set`, Linux/macOS에서는 `export`를 사용한다.
@@ -93,7 +93,7 @@ set API_SALT=your_api_salt
 
 ---
 
-# 트러블슈팅
+## 트러블슈팅
 
 | 증상 | 확인 |
 |------|------|

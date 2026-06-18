@@ -14,7 +14,7 @@ categories:
 series: ["Python 자동화 아카이브"]
 ---
 
-# 개요
+## 개요
 
 스프레드시트·외부 목록을 **TSV(탭 구분)** 파일로 받아 DB에 넣는 입력 채널 패턴이다.
 운영팀·시트에서 내려받은 목록을 DB `targets` 테이블에 쌓아 두고, **별도 배치**가 `SELECT`로 읽어 처리하는 구성이 흔하다.
@@ -26,7 +26,7 @@ series: ["Python 자동화 아카이브"]
 
 ---
 
-# 처리 흐름
+## 처리 흐름
 
 ```
 스프레드시트 → TSV보내기 → ingest 폴더
@@ -42,7 +42,7 @@ DB에 없는 키만 INSERT
 
 ---
 
-# TSV 읽기
+## TSV 읽기
 
 폴더 안 `.tsv`를 모두 읽고, 인코딩 fallback을 둔다.
 
@@ -68,7 +68,7 @@ def read_tsv_lines(folder: str) -> list[str]:
 
 ---
 
-# 행 파싱
+## 행 파싱
 
 헤더가 있으면 첫 줄을 컬럼명으로 쓴다. 데모는 탭 고정 컬럼이다.
 
@@ -90,7 +90,7 @@ def parse_row(line: str, headers: list[str] | None = None) -> dict:
 
 ---
 
-# 필터
+## 필터
 
 ```python
 def should_ingest(row: dict, target_category: str = "target") -> bool:
@@ -101,7 +101,7 @@ def should_ingest(row: dict, target_category: str = "target") -> bool:
 
 ---
 
-# 증분 적재 (존재하면 skip)
+## 증분 적재 (존재하면 skip)
 
 자연키 `(keyword, url)` 기준으로 DB에 있으면 INSERT하지 않는다.
 
@@ -138,7 +138,7 @@ conn.execute(
 
 ---
 
-# 한 사이클
+## 한 사이클
 
 ```python
 def run_ingest(tsv_folder: str, db_path: str, target_category: str = "target") -> tuple[int, int]:
@@ -173,7 +173,7 @@ def run_ingest(tsv_folder: str, db_path: str, target_category: str = "target") -
 
 ---
 
-# 다운스트림: DB에서 읽기
+## 다운스트림: DB에서 읽기
 
 적재한 `targets`는 후속 배치의 입력으로 쓴다. 파일(`targets.txt`) 대신 DB를 쓰면 시트 수정과 처리를 분리하기 쉽다.
 
@@ -197,7 +197,7 @@ def load_targets_page(conn, limit: int = 1000, offset: int = 0):
 
 ---
 
-# TSV 예시
+## TSV 예시
 
 `ingest/chart_export.tsv`:
 
@@ -210,7 +210,7 @@ web scraping	https://example.com/c	target	450
 
 ---
 
-# 파이프라인에서의 위치
+## 파이프라인에서의 위치
 
 | 단계 | 역할 |
 |------|------|
@@ -222,7 +222,7 @@ web scraping	https://example.com/c	target	450
 
 ---
 
-# 주의사항
+## 주의사항
 
 - **인코딩** — Excel·시트보내기는 `cp949`인 경우가 많다
 - **중복 키** — UNIQUE 설계를 먼저 정한다

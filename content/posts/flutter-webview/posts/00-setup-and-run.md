@@ -13,14 +13,14 @@ categories:
 series: ["Flutter WebView 앱"]
 ---
 
-# 개요
+## 개요
 
 시리즈 시작 전에 Flutter 설치부터 예제 실행까지 한 번에 정리한다.
 이 글만 끝내면 `examples/` 아래 예제를 바로 실행할 수 있다.
 
 ---
 
-# 1) Flutter SDK 설치
+## 1) Flutter SDK 설치
 
 Windows 기준으로 가장 단순한 순서:
 
@@ -37,7 +37,7 @@ flutter --version
 
 ---
 
-# 2) Android 실행 환경 준비
+## 2) Android 실행 환경 준비
 
 WebView 예제는 에뮬레이터나 실기기 1대만 있으면 된다.
 
@@ -57,7 +57,7 @@ flutter devices
 
 ---
 
-# 3) 의존성 체크
+## 3) 의존성 체크
 
 처음 세팅 후 한 번은 꼭 실행:
 
@@ -68,7 +68,7 @@ flutter doctor
 `[!]`가 남아 있으면 해당 항목만 고치면 된다.
 보통 Android toolchain / licenses에서 막히는 경우가 많다.
 
-### cmdline-tools / sdkmanager 없음
+#### cmdline-tools / sdkmanager 없음
 
 `flutter doctor`에 아래가 보이면 **Command-line Tools**가 빠진 상태다.
 
@@ -129,7 +129,7 @@ flutter doctor
 
 ---
 
-# 4) 예제 실행 공통 패턴
+## 4) 예제 실행 공통 패턴
 
 이 시리즈 예제 폴더는 플랫폼 폴더를 제외하고 커밋되어 있다.
 그래서 각 예제에서 한 번씩 `flutter create .`를 먼저 실행한다.
@@ -148,7 +148,7 @@ flutter run
 
 ---
 
-# 5) 자주 막히는 포인트
+## 5) 자주 막히는 포인트
 
 - `flutter` 명령어가 없음  
   → PATH 설정 후 **터미널 재시작**

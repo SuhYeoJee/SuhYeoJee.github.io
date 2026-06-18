@@ -14,7 +14,7 @@ categories:
 series: ["Python 자동화 아카이브"]
 ---
 
-# 개요
+## 개요
 
 긴 텍스트를 청크로 나누고, LLM API에 지시문과 함께 보내 일괄 변환하는 패턴이다.
 종결 어미 통일, 톤 변경, 요약 등 **문장 단위 편집**에 쓰인다.
@@ -24,7 +24,7 @@ API 키는 환경 변수로만 전달하며, 입·출력은 로컬 텍스트 파
 
 ---
 
-# 처리 흐름
+## 처리 흐름
 
 ```
 input/*.txt → 청크 분할 → (선택) 문장 마킹 → LLM 요청 → 후처리·검수
@@ -36,7 +36,7 @@ output/*.txt + (선택) HTML diff 비교 페이지
 
 ---
 
-# API 키와 클라이언트
+## API 키와 클라이언트
 
 OpenAI API 키는 `OPENAI_API_KEY` 환경 변수에서 읽는다.
 
@@ -51,7 +51,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 ---
 
-# 청크 분할
+## 청크 분할
 
 빈 줄(`\n\n`) 기준으로 문단을 나누고, N개 문단씩 묶어 API 호출 단위를 만든다.
 
@@ -68,7 +68,7 @@ def split_chunks(text: str, chunk_size: int = 3) -> list[str]:
 
 ---
 
-# 문장 마킹 (선택)
+## 문장 마킹 (선택)
 
 변환 대상 문장 끝에 마커를 붙이면, LLM이 **어디를 바꿀지** 범위를 좁힐 수 있다.
 마침표로 끝나는 문장을 `<합니다.>` 형태로 감싼다.
@@ -88,7 +88,7 @@ def mark_sentences(text: str) -> str:
 
 ---
 
-# LLM 호출
+## LLM 호출
 
 지시문(prompt)과 마킹된 본문을 합쳐 user 메시지로 보낸다.
 
@@ -110,7 +110,7 @@ def transform_chunk(prompt: str, body: str, model: str = "gpt-4o") -> str:
 
 ---
 
-# Rate limit 재시도
+## Rate limit 재시도
 
 `RateLimitError`·`ServiceUnavailableError` 시 sleep 후 재시도한다.
 
@@ -132,7 +132,7 @@ def transform_with_retry(prompt: str, body: str, retries: int = 3) -> str:
 
 ---
 
-# 후처리·검수
+## 후처리·검수
 
 LLM 출력은 규칙 기반으로 한 번 더 정리한다.
 
@@ -147,7 +147,7 @@ def postprocess(response: str) -> str:
 
 ---
 
-# HTML diff 출력 (선택)
+## HTML diff 출력 (선택)
 
 원문과 변환 결과를 나란히 비교하려면 `difflib.HtmlDiff`로 HTML을 생성한다.
 
@@ -169,7 +169,7 @@ def write_diff_html(original: str, transformed: str, path: str) -> None:
 
 ---
 
-# 전체 루프 (최소)
+## 전체 루프 (최소)
 
 ```python
 from pathlib import Path
@@ -196,7 +196,7 @@ for file_path in input_dir.glob("*.txt"):
 
 ---
 
-# 주의사항
+## 주의사항
 
 - **비용** — 청크 수 × 토큰 단가. 긴 원고는 `chunk_size`와 모델 선택으로 조절
 - **PII** — 개인정보가 포함된 텍스트는 API 전송 전 마스킹

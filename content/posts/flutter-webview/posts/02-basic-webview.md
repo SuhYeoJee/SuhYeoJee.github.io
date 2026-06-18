@@ -13,7 +13,7 @@ categories:
 series: ["Flutter WebView 앱"]
 ---
 
-# 개요
+## 개요
 
 1편에서 말한 1세대 템플릿을 직접 만들어 본다.
 웹페이지 하나 띄우고, 하단에 툴바 달고, 뒤로가기 누르면 종료 확인하는 것까지.
@@ -24,7 +24,7 @@ series: ["Flutter WebView 앱"]
 
 ---
 
-# 이 예제가 하는 일
+## 이 예제가 하는 일
 
 1. 앱 실행 → WebView에 홈 페이지 연다 (기본은 번들 HTML)
 2. 같은 데모 안의 `.html` 링크는 앱 안에서 이동
@@ -34,7 +34,7 @@ series: ["Flutter WebView 앱"]
 
 ---
 
-# 프로젝트 구조
+## 프로젝트 구조
 
 ```
 01_basic_webview/
@@ -51,7 +51,7 @@ series: ["Flutter WebView 앱"]
 
 ---
 
-# WebViewController 세팅
+## WebViewController 세팅
 
 `webview_flutter` 4.x는 `WebViewController`를 만들고 `WebViewWidget`에 넘기는 방식이다.
 
@@ -73,7 +73,7 @@ if (AppConfig.useBundledDemo) {
 
 ---
 
-# 링크 가로채기
+## 링크 가로채기
 
 브라우저랑 다르게 앱은 **어디까지 앱 안에 둘지** 정해줘야 한다.
 
@@ -114,7 +114,7 @@ NavigationDecision _onNavigationRequest(NavigationRequest request) {
 
 ---
 
-# 뒤로가기
+## 뒤로가기
 
 시스템 뒤로가기와 툴바 뒤로 버튼이 같은 로직을 쓴다.
 
@@ -137,7 +137,7 @@ Future<bool> _handleBack() async {
 
 ---
 
-# 하단 툴바
+## 하단 툴바
 
 | 버튼 | 동작 |
 |------|------|
@@ -150,7 +150,7 @@ Future<bool> _handleBack() async {
 
 ---
 
-# 데모 HTML
+## 데모 HTML
 
 `index.html`에 테스트 링크를 넣어뒀다.
 
@@ -161,7 +161,7 @@ Future<bool> _handleBack() async {
 
 ---
 
-# 실행
+## 실행
 
 ```bash
 cd examples/01_basic_webview
@@ -172,7 +172,7 @@ flutter run
 
 ---
 
-# 1편이랑 비교
+## 1편이랑 비교
 
 | | 1편 (개념) | 이번 예제 |
 |--|-----------|----------|

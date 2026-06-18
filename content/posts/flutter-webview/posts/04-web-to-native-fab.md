@@ -13,7 +13,7 @@ categories:
 series: ["Flutter WebView 앱"]
 ---
 
-# 개요
+## 개요
 
 웹은 그대로 두고, **특정 페이지에서만** 네이티브 버튼을 보여주고 싶을 때가 있다.
 타이머, 계산기, QR 같은 부가 기능 말이다.
@@ -22,7 +22,7 @@ series: ["Flutter WebView 앱"]
 
 ---
 
-# 웹→앱 계약
+## 웹→앱 계약
 
 웹과 앱이 약속할 신호가 필요하다. 이번 예제는 URL 쿼리를 쓴다.
 
@@ -35,7 +35,7 @@ index.html               → FAB 숨김
 
 ---
 
-# onPageStarted에서 FAB 상태 갱신
+## onPageStarted에서 FAB 상태 갱신
 
 ```dart
 ..setNavigationDelegate(
@@ -59,7 +59,7 @@ bool shouldShowTimerFab(String url) {
 
 ---
 
-# FAB + 별도 화면
+## FAB + 별도 화면
 
 ```dart
 if (_showTimerFab)
@@ -82,7 +82,7 @@ if (_showTimerFab)
 
 ---
 
-# 데모 HTML
+## 데모 HTML
 
 `index.html`에 링크 두 개:
 
@@ -93,7 +93,7 @@ if (_showTimerFab)
 
 ---
 
-# 다른 신호 방식 (참고)
+## 다른 신호 방식 (참고)
 
 | 방식 | 장점 | 단점 |
 |------|------|------|
@@ -105,7 +105,7 @@ if (_showTimerFab)
 
 ---
 
-# 실행
+## 실행
 
 ```bash
 cd examples/04_web_to_native_fab

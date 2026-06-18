@@ -15,7 +15,7 @@ categories:
 series: ["Python 자동화 아카이브"]
 ---
 
-# 개요
+## 개요
 
 여러 서버·도메인에 Let's Encrypt 인증서를 발급·갱신할 때, SSH로 원격 명령을 실행하는 오케스트레이션 패턴이다.
 CPU 모니터링(2편)과 같은 **목록 + 루프** 골격이지만, SSH로 서버 설정을 변경하므로 실패 시 HTTPS 중단으로 이어질 수 있다.
@@ -24,7 +24,7 @@ CPU 모니터링(2편)과 같은 **목록 + 루프** 골격이지만, SSH로 서
 
 ---
 
-# 처리 흐름
+## 처리 흐름
 
 ```
 hosts.txt → SSH 접속 → certbot → 웹서버 reload → 로그
@@ -34,7 +34,7 @@ hosts.txt → SSH 접속 → certbot → 웹서버 reload → 로그
 
 ---
 
-# certbot 인증 방식
+## certbot 인증 방식
 
 자동화 스크립트를 짜기 전에, 대상 서버가 어떤 방식으로 도메인 소유를 증명하는지 정해야 한다.
 
@@ -48,7 +48,7 @@ hosts.txt → SSH 접속 → certbot → 웹서버 reload → 로그
 
 ---
 
-# SSH 원격 실행
+## SSH 원격 실행
 
 `paramiko`로 SSH 세션을 열고, 원격 셸에서 명령을 실행한다.
 키 파일 경로와 사용자명은 환경 변수에서 읽어 코드에 비밀 정보가 남지 않게 한다.
@@ -77,7 +77,7 @@ def run_remote(host: str, command: str) -> tuple[int, str, str]:
 
 ---
 
-# certbot 갱신
+## certbot 갱신
 
 이미 발급된 인증서가 있을 때는 `certbot renew`로 갱신한다.
 갱신 성공 후 Nginx를 reload해야 새 인증서가 적용된다. `&&`로 두 명령을 한 줄에 연결했다.
@@ -114,7 +114,7 @@ cmd = (
 
 ---
 
-# 대상 순회
+## 대상 순회
 
 `hosts.txt`에 `호스트IP\t도메인` 형식으로 대상을 적고, 2편 `load_servers`와 같은 방식으로 읽는다.
 `run_once`가 각 호스트에 대해 `renew_cert`를 호출한다.
@@ -147,7 +147,7 @@ def run_once() -> None:
 
 ---
 
-# 드라이런 검증
+## 드라이런 검증
 
 운영 스크립트를 돌리기 전에, 서버에서 certbot 설정이 올바른지 `--dry-run`으로 확인한다.
 실제 인증서를 발급·갱신하지 않고 ACME 챌린지까지만 시뮬레이션한다.
@@ -162,7 +162,7 @@ if code != 0:
 
 ---
 
-# Let's Encrypt 제약
+## Let's Encrypt 제약
 
 - 동일 도메인에 짧은 시간 반복 발급 시 rate limit에 걸린다
 - 인증서 유효 기간은 90일이며, `certbot renew`는 만료 30일 이내인 경우에만 실제 갱신한다
@@ -170,7 +170,7 @@ if code != 0:
 
 ---
 
-# CPU 모니터링과 비교
+## CPU 모니터링과 비교
 
 | | CPU (2편) | HTTPS (3편) |
 |--|-----------|-------------|

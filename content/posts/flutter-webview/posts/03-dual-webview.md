@@ -13,7 +13,7 @@ categories:
 series: ["Flutter WebView 앱"]
 ---
 
-# 개요
+## 개요
 
 2편은 WebView **하나**로 충분했다.
 3세대 템플릿은 **같은 역할을 다른 형태로** 만든 변형이다. 그중 하나가 **컨트롤러 두 개 + `Offstage`** 패턴이다.
@@ -22,7 +22,7 @@ series: ["Flutter WebView 앱"]
 
 ---
 
-# 왜 컨트롤러가 두 개인가
+## 왜 컨트롤러가 두 개인가
 
 **기능이 부족해서가 아니다.** 단일 컨트롤러 셸(2편)로도 링크 가로채기·뒤로가기·종료 확인은 구현된다.
 
@@ -43,7 +43,7 @@ series: ["Flutter WebView 앱"]
 
 ---
 
-# 화면 구조
+## 화면 구조
 
 ```dart
 Stack(
@@ -64,7 +64,7 @@ Stack(
 
 ---
 
-# 페이지 전환
+## 페이지 전환
 
 내부 링크를 누르면 기본 네비게이션 대신 비활성 컨트롤러에 로드한다.
 
@@ -90,7 +90,7 @@ NavigationDecision _onNavigationRequest(NavigationRequest request) {
 
 ---
 
-# 뒤로가기
+## 뒤로가기
 
 ```dart
 Future<void> _handleBack() async {
@@ -111,7 +111,7 @@ Future<void> _handleBack() async {
 
 ---
 
-# 데모 시나리오
+## 데모 시나리오
 
 1. Home → Page 2 → Page 3 순으로 이동
 2. 뒤로가기 연타: Page 3 → 2 → Home
@@ -119,7 +119,7 @@ Future<void> _handleBack() async {
 
 ---
 
-# 2편과 비교
+## 2편과 비교
 
 | | basic_webview | dual_webview |
 |--|---------------|--------------|
@@ -130,7 +130,7 @@ Future<void> _handleBack() async {
 
 ---
 
-# 실행
+## 실행
 
 ```bash
 cd examples/03_dual_webview
