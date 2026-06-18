@@ -20,6 +20,10 @@ Python 배치·모니터링 스크립트의 **설계 패턴과 인프라 연동*
 | 7 | [Selenium 검색 순위 모니터링](./posts/07-selenium-serp-rank-monitoring.md) | 초안 |
 | 8 | [HTTP 기반 검색 순위 조회](./posts/08-http-serp-rank-monitoring.md) | 초안 |
 | 9 | [TSV 입력 채널과 DB 증분 적재](./posts/09-tsv-incremental-db-ingest.md) | 초안 |
+| 10 | [Selenium 멀티프로세싱 패턴](./posts/10-selenium-multiprocessing.md) | 초안 |
+| 11 | [subprocess 격리와 timeout](./posts/11-subprocess-isolation-timeout.md) | 초안 |
+| 12 | [HTTP DB 프록시와 요청 서명](./posts/12-http-db-proxy-signing.md) | 초안 |
+| 13 | [PyAutoGUI 데스크톱 입력 자동화](./posts/13-pyautogui-desktop-input.md) | 초안 |
 
 ## 작성 원칙
 

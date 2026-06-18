@@ -19,7 +19,7 @@ series: ["Python 자동화 아카이브"]
 Python으로 서버·인프라를 다루는 스크립트는 대부분 같은 골격을 따른다.
 **설정 로드 → 대상 순회 → 외부 시스템 호출 → 결과 기록·알림 → 주기적 반복.**
 
-이 시리즈는 그 골격을 기준으로 아홉 가지 주제를 정리한다.
+이 시리즈는 그 골격을 기준으로 2~13편 주제를 정리한다.
 
 - **2편** — AWS Lightsail CPU 메트릭 조회와 임계값 알림
 - **3편** — SSH + certbot 기반 HTTPS 인증서 자동화
@@ -29,6 +29,10 @@ Python으로 서버·인프라를 다루는 스크립트는 대부분 같은 골
 - **7편** — Selenium 기반 검색 순위(SERP) 모니터링
 - **8편** — HTTP·BeautifulSoup 검색 순위 조회
 - **9편** — TSV 입력 채널과 DB 증분 적재
+- **10편** — Selenium + multiprocessing 병렬 처리
+- **11편** — subprocess 격리·timeout·재시도
+- **12편** — HTTP DB 프록시·요청 서명
+- **13편** — PyAutoGUI 데스크톱 입력 자동화
 
 블로그용 스니펫은 전부 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.
 
@@ -180,6 +184,10 @@ if token:
 | 7 | SERP (Selenium) | WebDriver, CSS 셀렉터 |
 | 8 | SERP (HTTP) | requests, BeautifulSoup, Pool |
 | 9 | TSV 입력 | 증분 INSERT, ingest 폴더 |
+| 10 | Selenium 병렬 | Pool, wrapper·worker, 청크 |
+| 11 | subprocess 격리 | Popen, timeout, worker 분리 |
+| 12 | HTTP DB 프록시 | 서명, SELECT 페이징, upsert |
+| 13 | 데스크톱 입력 | PyAutoGUI, IME·클립보드 |
 
 ---
 
