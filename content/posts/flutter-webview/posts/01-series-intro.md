@@ -1,17 +1,16 @@
 ---
 title: Flutter WebView 앱 복습
 description: ""
-date: 2026-06-16T00:00:00.000Z
+date: 2026-06-16T10:00:00.000Z
 preview: ""
 draft: true
 tags:
     - Flutter
     - WebView
     - 하이브리드앱
-    - webview_flutter
 categories:
     - Manual
-series: ["Flutter WebView App"]
+series: ["Flutter WebView 앱"]
 ---
 
 # 개요

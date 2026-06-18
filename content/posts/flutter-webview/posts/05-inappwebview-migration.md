@@ -1,17 +1,16 @@
 ---
-title: inappwebview에서 webview_flutter로
+title: Flutter WebView — inappwebview에서 webview_flutter로
 description: ""
-date: 2026-06-17T10:00:00.000Z
+date: 2026-06-16T18:00:00.000Z
 preview: ""
 draft: true
 tags:
     - Flutter
-    - WebView
     - flutter_inappwebview
     - webview_flutter
 categories:
     - Manual
-series: ["Flutter WebView App"]
+series: ["Flutter WebView 앱"]
 ---
 
 # 개요

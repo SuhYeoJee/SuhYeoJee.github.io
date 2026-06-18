@@ -1,16 +1,16 @@
 ---
-title: URL로 네이티브 FAB 켜기
+title: Flutter WebView — URL로 네이티브 FAB 켜기
 description: ""
 date: 2026-06-16T16:00:00.000Z
 preview: ""
 draft: true
 tags:
     - Flutter
-    - WebView
     - FAB
+    - NavigationDelegate
 categories:
     - Manual
-series: ["Flutter WebView App"]
+series: ["Flutter WebView 앱"]
 ---
 
 # 개요

@@ -21,15 +21,15 @@
 | 0 | [Flutter 설치와 예제 실행](./posts/00-setup-and-run.md) | — | 초안 |
 | 1 | [Flutter WebView 앱 복습](./posts/01-series-intro.md) | — | 초안 |
 
-| 2 | [WebView 기본 — 툴바와 뒤로가기](./posts/02-basic-webview.md) | [01_basic_webview](./examples/01_basic_webview/) | 초안 |
+| 2 | [Flutter WebView 기본 — 툴바와 뒤로가기](./posts/02-basic-webview.md) | [01_basic_webview](./examples/01_basic_webview/) | 초안 |
 
-| 3 | [듀얼 WebView — 컨트롤러 두 개](./posts/03-dual-webview.md) | [03_dual_webview](./examples/03_dual_webview/) | 초안 |
+| 3 | [Flutter 듀얼 WebView — 컨트롤러 두 개](./posts/03-dual-webview.md) | [03_dual_webview](./examples/03_dual_webview/) | 초안 |
 
-| 4 | [URL로 네이티브 FAB 켜기](./posts/04-web-to-native-fab.md) | [04_web_to_native_fab](./examples/04_web_to_native_fab/) | 초안 |
+| 4 | [Flutter WebView — URL로 네이티브 FAB 켜기](./posts/04-web-to-native-fab.md) | [04_web_to_native_fab](./examples/04_web_to_native_fab/) | 초안 |
 
-| 5 | [inappwebview에서 webview_flutter로](./posts/05-inappwebview-migration.md) | — | 초안 |
+| 5 | [Flutter WebView — inappwebview에서 webview_flutter로](./posts/05-inappwebview-migration.md) | — | 초안 |
 
-| 6 | [네이티브 부가 기능 붙이기](./posts/06-native-addons.md) | (4편 타이머 참고) | 초안 |
+| 6 | [Flutter WebView — 네이티브 부가 기능 붙이기](./posts/06-native-addons.md) | (4편 타이머 참고) | 초안 |
 
 
 

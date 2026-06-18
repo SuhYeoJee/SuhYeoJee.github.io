@@ -1,16 +1,16 @@
 ---
-title: 듀얼 WebView — 컨트롤러 두 개로 히스토리 살리기
+title: Flutter 듀얼 WebView — 컨트롤러 두 개로 히스토리 살리기
 description: ""
 date: 2026-06-16T14:00:00.000Z
 preview: ""
 draft: true
 tags:
     - Flutter
-    - WebView
     - webview_flutter
+    - DualWebView
 categories:
     - Manual
-series: ["Flutter WebView App"]
+series: ["Flutter WebView 앱"]
 ---
 
 # 개요

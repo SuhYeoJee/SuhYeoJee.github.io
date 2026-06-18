@@ -1,7 +1,7 @@
 ---
 title: Flutter 설치와 예제 실행 (시리즈 0편)
 description: ""
-date: 2026-06-17T18:55:00.000Z
+date: 2026-06-16T09:55:00.000Z
 preview: ""
 draft: true
 tags:
@@ -10,7 +10,7 @@ tags:
     - Windows
 categories:
     - Manual
-series: ["Flutter WebView App"]
+series: ["Flutter WebView 앱"]
 ---
 
 # 개요

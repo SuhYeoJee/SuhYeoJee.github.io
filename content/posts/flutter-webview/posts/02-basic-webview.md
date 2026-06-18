@@ -1,17 +1,16 @@
 ---
-title: WebView 기본 — 툴바와 뒤로가기
+title: Flutter WebView 기본 — 툴바와 뒤로가기
 description: ""
 date: 2026-06-16T12:00:00.000Z
 preview: ""
 draft: true
 tags:
     - Flutter
-    - WebView
     - webview_flutter
     - url_launcher
 categories:
     - Manual
-series: ["Flutter WebView App"]
+series: ["Flutter WebView 앱"]
 ---
 
 # 개요
