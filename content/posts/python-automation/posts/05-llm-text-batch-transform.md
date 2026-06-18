@@ -3,7 +3,7 @@ title: LLM 배치 텍스트 변환
 description: ""
 date: 2026-06-19T10:30:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Python
     - OpenAI

@@ -3,7 +3,7 @@ title: subprocess 격리와 timeout
 description: ""
 date: 2026-06-21T10:00:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Python
     - subprocess

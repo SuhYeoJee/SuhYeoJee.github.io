@@ -3,7 +3,7 @@ title: POP3 메일 읽기와 MIME 파싱
 description: ""
 date: 2026-06-19T11:00:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Python
     - POP3

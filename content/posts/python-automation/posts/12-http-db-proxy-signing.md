@@ -3,7 +3,7 @@ title: HTTP DB 프록시와 요청 서명
 description: ""
 date: 2026-06-21T10:30:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Python
     - HTTP
@@ -22,6 +22,7 @@ series: ["Python 자동화 아카이브"]
 
 데모 URL·테이블명만 사용하며, 실서비스 엔드포인트는 넣지 않는다.
 블로그용 스니펫은 전부 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.
+**본인이 관리하는 서버·DB API**에만 적용한다.
 
 ---
 
@@ -128,7 +129,7 @@ def db_upsert(row: dict) -> None:
             "timestamp": ts,
             "signature": sig,
             "action": "upsert",
-            "table": "serp_ranks",
+            "table": "batch_results",
             "data": row,
         },
         timeout=30,
@@ -172,15 +173,16 @@ HTTP 상태·JSON `error` 필드를 구분해 로그에 남긴다.
 
 ---
 
-# 7·8편과 연결
+# 다운스트림 배치 예시
 
 ```
-9편 TSV ingest (로컬)  ──HTTP upsert──►  원격 DB
-7·8편 순위 조회  ◄──HTTP select──  원격 DB (targets)
-                              ──HTTP upsert──►  ranks
+9편 TSV ingest (로컬)  ──HTTP upsert──►  원격 DB (targets)
+후속 배치              ◄──HTTP select──  원격 DB (targets)
+                       ──HTTP upsert──►  원격 DB (batch_results)
 ```
 
 배치 PC는 `requests`만 있으면 되고, DB 드라이버 설치가 필요 없다.
+후속 배치는 HTTP·Selenium·LLM 등 임의 작업이 될 수 있다.
 
 ---
 

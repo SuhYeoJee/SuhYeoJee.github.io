@@ -3,7 +3,7 @@ title: AWS Lightsail CPU 모니터링
 description: ""
 date: 2026-06-18T11:00:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Python
     - AWS

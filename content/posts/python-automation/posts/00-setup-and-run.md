@@ -3,7 +3,7 @@ title: Python 환경 설정 (시리즈 0편)
 description: ""
 date: 2026-06-18T10:00:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Python
     - Setup

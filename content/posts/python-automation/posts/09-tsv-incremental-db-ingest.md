@@ -3,7 +3,7 @@ title: TSV 입력 채널과 DB 증분 적재
 description: ""
 date: 2026-06-20T11:00:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Python
     - TSV
@@ -17,11 +17,12 @@ series: ["Python 자동화 아카이브"]
 # 개요
 
 스프레드시트·외부 목록을 **TSV(탭 구분)** 파일로 받아 DB에 넣는 입력 채널 패턴이다.
-7·8편 순위 모니터링의 **upstream** — 대상 키워드·URL 목록을 DB에 쌓아 두고, 이후 배치가 `SELECT`로 읽어 처리한다.
+운영팀·시트에서 내려받은 목록을 DB `targets` 테이블에 쌓아 두고, **별도 배치**가 `SELECT`로 읽어 처리하는 구성이 흔하다.
 
 전량 INSERT가 아니라 **이미 있는 행은 건너뛰는 증분 적재**가 핵심이다.
 데모 데이터만 사용하며, 실서비스 URL·계정은 넣지 않는다.
 블로그용 스니펫은 전부 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.
+**본인이 관리·접근 권한이 있는 데이터**에만 적용한다.
 
 ---
 
@@ -34,7 +35,7 @@ TSV 파싱·필터(조건 컬럼)
     ↓
 DB에 없는 키만 INSERT
     ↓
-(다운스트림) 순위 배치가 DB에서 SELECT
+(다운스트림) 다른 배치가 DB에서 SELECT
 ```
 
 이 편은 **파일/시트**를 입력 채널로 쓴다. 6편 POP3·메일 파싱과는 별개다.
@@ -174,7 +175,7 @@ def run_ingest(tsv_folder: str, db_path: str, target_category: str = "target") -
 
 # 다운스트림: DB에서 읽기
 
-7·8편 순위 배치는 파일 대신 DB에서 대상을 가져온다.
+적재한 `targets`는 후속 배치의 입력으로 쓴다. 파일(`targets.txt`) 대신 DB를 쓰면 시트 수정과 처리를 분리하기 쉽다.
 
 ```python
 def load_targets_from_db(db_path: str) -> list[tuple[str, str]]:
@@ -184,7 +185,7 @@ def load_targets_from_db(db_path: str) -> list[tuple[str, str]]:
     return [(r[0], r[1]) for r in rows]
 ```
 
-대량이면 `LIMIT/OFFSET` 페이징(1편·원본 PHP 프록시 패턴과 동일)을 쓴다.
+대량이면 `LIMIT/OFFSET` 페이징을 쓴다. 원격 DB는 [12편](./12-http-db-proxy-signing.md) HTTP SELECT 페이징과 같은 패턴이다.
 
 ```python
 def load_targets_page(conn, limit: int = 1000, offset: int = 0):
@@ -211,13 +212,13 @@ web scraping	https://example.com/c	target	450
 
 # 파이프라인에서의 위치
 
-| 단계 | 편 | 역할 |
-|------|-----|------|
-| 입력 | 9편 (현재) | TSV → DB targets |
-| 처리 | 7·8편 | DB targets → 순위 조회 |
-| 출력 | 7·8편 | ranks 테이블 upsert |
+| 단계 | 역할 |
+|------|------|
+| 입력 (현재) | TSV → DB `targets` |
+| 처리 | DB `targets` → 외부 호출·변환 배치 |
+| 출력 | 결과 테이블 upsert 또는 파일 기록 |
 
-9편 없이 `targets.txt`만 써도 되지만, 시트·운영팀 수정과 배치를 분리하려면 DB 중간층이 유리하다.
+9편 없이 `targets.txt`만 써도 되지만, 시트·운영 수정과 배치를 분리하려면 DB 중간층이 유리하다.
 
 ---
 

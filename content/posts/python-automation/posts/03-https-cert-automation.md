@@ -3,7 +3,7 @@ title: HTTPS 인증서 배치 자동화
 description: ""
 date: 2026-06-18T11:30:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Python
     - HTTPS
