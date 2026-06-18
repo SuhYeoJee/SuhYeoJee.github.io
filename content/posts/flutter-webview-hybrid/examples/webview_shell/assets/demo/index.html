@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>webview_shell — Home</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; line-height: 1.6; }
+    a { display: block; margin: 10px 0; }
+    .box { background: #f4f4f4; padding: 16px; border-radius: 8px; margin: 16px 0; }
+    .on { background: #e8f5e9; }
+  </style>
+</head>
+<body>
+  <h1>webview_shell 통합 데모</h1>
+  <p>듀얼 WebView · 툴바 · URL FAB 패턴을 한 앱에서 확인한다.</p>
+
+  <div class="box">
+    <strong>앱 안 이동 (듀얼 컨트롤러)</strong>
+    <a href="page2.html">Page 2</a>
+    <a href="page3.html">Page 3</a>
+  </div>
+
+  <div class="box">
+    <strong>외부 앱</strong>
+    <a href="https://flutter.dev">flutter.dev</a>
+    <a href="tel:+821012345678">tel: 테스트</a>
+  </div>
+
+  <div class="box on">
+    <strong>네이티브 FAB (?feature=timer)</strong>
+    <a href="index.html">FAB 숨김 (쿼리 없음)</a>
+    <a href="index.html?feature=timer">타이머 FAB 켜기</a>
+  </div>
+
+  <p style="margin-top: 48px; color: #888;">스크롤 · 맨위로 버튼 테스트</p>
+  <p style="height: 600px;">↓</p>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # 03_dual_webview
 
-WebViewController 두 개 + `Offstage` 전환 패턴.
+WebViewController 두 개 + `Offstage` 전환 패턴. **기능 보완용이 아니라, 단일 컨트롤러 셸과 다른 형태의 템플릿 샘플**이다.
 
 ## 실행
 

@@ -31,8 +31,7 @@ index.html?feature=timer   → 타이머 FAB 표시
 index.html               → FAB 숨김
 ```
 
-회사 때는 비슷한 방식으로 특정 쿼리가 있을 때만 FAB를 켰다.
-여기서는 `feature=timer` 로 이름만 바꿨다.
+특정 쿼리가 있을 때만 FAB를 켜는 방식이다. 이 예제에서는 `feature=timer` 를 쓴다.
 
 ---
 

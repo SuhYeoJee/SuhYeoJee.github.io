@@ -25,6 +25,6 @@ flutter run
 - `useBundledDemo = true` — 기본값, `assets/demo/index.html` 로드
 - `useBundledDemo = false` — `homeUrl`의 실제 URL 로드, 다른 호스트는 외부 앱으로 연다
 
-## 회사 코드와의 관계
+## 예제 출처
 
-이 예제는 학습용으로 새로 작성했으며, 이전 직장 소스코드를 포함하지 않는다.
+학습용으로 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.

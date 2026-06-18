@@ -85,7 +85,7 @@ webview_flutter만 쓰면 선택지가 줄어든다.
 | 상황 | 대안 |
 |------|------|
 | 결제·SNS 등 외부 | `url_launcher`로 시스템 브라우저 |
-| 같은 서비스 내 다른 URL | 듀얼 WebView (3편) |
+| 같은 서비스 내 다른 URL | 단일 WebView 또는 듀얼 WebView (3편, 셸 변형) |
 | 진짜 팝업 필수 | inappwebview 유지 or 별도 Route |
 
 ---
@@ -124,4 +124,4 @@ PopScope(
 - WebView 안에서 파일 업로드·인증서 등 **고급 브라우저 기능** 필요
 - 이미 inappwebview에 깊게 묶인 레거시
 
-그 외 랜딩 래퍼 수준이면 `webview_flutter` + `url_launcher` + 듀얼 컨트롤러로 충분한 경우가 많다.
+그 외 랜딩 래퍼 수준이면 `webview_flutter` + `url_launcher` + **단일 컨트롤러 셸**로 충분한 경우가 많다. 듀얼 컨트롤러는 **다른 형태**의 템플릿이 필요할 때 고른다.
