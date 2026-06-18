@@ -19,10 +19,13 @@ series: ["Python 자동화 아카이브"]
 Python으로 서버·인프라를 다루는 스크립트는 대부분 같은 골격을 따른다.
 **설정 로드 → 대상 순회 → 외부 시스템 호출 → 결과 기록·알림 → 주기적 반복.**
 
-이 시리즈는 그 골격을 기준으로 두 가지 주제를 정리한다.
+이 시리즈는 그 골격을 기준으로 여섯 가지 주제를 정리한다.
 
 - **2편** — AWS Lightsail CPU 메트릭 조회와 임계값 알림
 - **3편** — SSH + certbot 기반 HTTPS 인증서 자동화
+- **4편** — Google Play 앱 메트릭·리뷰 수집
+- **5편** — LLM API 배치 텍스트 변환
+- **6편** — POP3 메일 수집과 DB 저장
 
 블로그용 스니펫은 전부 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.
 
@@ -48,7 +51,7 @@ for target in targets:
 sleep(delay) → 반복
 ```
 
-`external_call` 자리에 AWS CLI, SSH, HTTP API 등이 들어간다. 2편과 3편은 이 자리만 다르다.
+`external_call` 자리에 AWS CLI, SSH, HTTP API, 스크래핑, LLM API 등이 들어간다. 이후 각 편은 이 자리만 다르다.
 
 ---
 
@@ -168,6 +171,9 @@ if token:
 | 1 | (현재) 패턴 개요 | config, 루프, 환경 변수 |
 | 2 | CPU 모니터링 | AWS CLI, 메트릭 JSON, 알림 |
 | 3 | HTTPS 자동화 | SSH, certbot |
+| 4 | Play 메트릭 | google-play-scraper, DB |
+| 5 | LLM 배치 변환 | OpenAI API, 청크·후처리 |
+| 6 | 메일 수집 | POP3, MIME, DB |
 
 ---
 

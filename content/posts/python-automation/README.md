@@ -14,6 +14,9 @@ Python 배치·모니터링 스크립트의 **설계 패턴과 인프라 연동*
 | 1 | [배치·모니터링 패턴 개요](./posts/01-series-intro.md) | 초안 |
 | 2 | [AWS Lightsail CPU 모니터링](./posts/02-aws-cpu-monitor.md) | 초안 |
 | 3 | [HTTPS 인증서 배치 자동화](./posts/03-https-cert-automation.md) | 초안 |
+| 4 | [Google Play 앱 메트릭 수집](./posts/04-google-play-app-scraping.md) | 초안 |
+| 5 | [LLM 배치 텍스트 변환](./posts/05-llm-text-batch-transform.md) | 초안 |
+| 6 | [POP3 메일 수집과 DB 저장](./posts/06-email-pop3-db-pipeline.md) | 초안 |
 
 ## 작성 원칙
 
