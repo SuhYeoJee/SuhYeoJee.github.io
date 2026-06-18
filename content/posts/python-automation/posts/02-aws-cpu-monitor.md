@@ -21,6 +21,7 @@ AWS Lightsail은 `get-instance-metric-data` API로 `CPUUtilization` 메트릭을
 
 1편에서 다룬 **설정 → 순회 → 외부 호출 → 알림 → 반복** 골격에 AWS CLI 호출이 들어간 형태다.
 예제의 서버 이름·IP는 데모용이며, 실서비스 값은 넣지 않는다.
+블로그용 스니펫은 전부 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.
 
 ---
 

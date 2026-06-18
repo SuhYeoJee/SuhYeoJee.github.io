@@ -19,13 +19,16 @@ series: ["Python 자동화 아카이브"]
 Python으로 서버·인프라를 다루는 스크립트는 대부분 같은 골격을 따른다.
 **설정 로드 → 대상 순회 → 외부 시스템 호출 → 결과 기록·알림 → 주기적 반복.**
 
-이 시리즈는 그 골격을 기준으로 여섯 가지 주제를 정리한다.
+이 시리즈는 그 골격을 기준으로 아홉 가지 주제를 정리한다.
 
 - **2편** — AWS Lightsail CPU 메트릭 조회와 임계값 알림
 - **3편** — SSH + certbot 기반 HTTPS 인증서 자동화
 - **4편** — Google Play 앱 메트릭·리뷰 수집
 - **5편** — LLM API 배치 텍스트 변환
 - **6편** — POP3 메일 수집과 DB 저장
+- **7편** — Selenium 기반 검색 순위(SERP) 모니터링
+- **8편** — HTTP·BeautifulSoup 검색 순위 조회
+- **9편** — TSV 입력 채널과 DB 증분 적재
 
 블로그용 스니펫은 전부 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.
 
@@ -174,6 +177,9 @@ if token:
 | 4 | Play 메트릭 | google-play-scraper, DB |
 | 5 | LLM 배치 변환 | OpenAI API, 청크·후처리 |
 | 6 | 메일 수집 | POP3, MIME, DB |
+| 7 | SERP (Selenium) | WebDriver, CSS 셀렉터 |
+| 8 | SERP (HTTP) | requests, BeautifulSoup, Pool |
+| 9 | TSV 입력 | 증분 INSERT, ingest 폴더 |
 
 ---
 
@@ -182,3 +188,4 @@ if token:
 - 클라이언트·서비스 이름, 실제 운영 URL·IP
 - 비공개 repo 코드
 - 실제 API 토큰·SSH 키·계정 정보
+- SEO·키워드 운영 실무 같은 비개발 얘기

@@ -42,15 +42,17 @@ pip --version
 mkdir py-automation && cd py-automation
 python -m venv .venv
 .venv\Scripts\activate
-pip install requests paramiko google-play-scraper openai
+pip install requests paramiko google-play-scraper openai selenium webdriver-manager beautifulsoup4
 ```
 
-- `requests` — 2편 텔레그램 Bot API 호출에 사용
-- `paramiko` — 3편 SSH 원격 명령 실행에 사용
-- `google-play-scraper` — 4편 Play 스토어 조회에 사용
-- `openai` — 5편 LLM API 호출에 사용
+- `requests` — 2편 텔레그램 Bot API, 8편 HTTP 조회
+- `paramiko` — 3편 SSH 원격 명령 실행
+- `google-play-scraper` — 4편 Play 스토어 조회
+- `openai` — 5편 LLM API 호출
+- `selenium`, `webdriver-manager` — 7편 브라우저 자동화
+- `beautifulsoup4` — 8편 HTML 파싱
 
-`subprocess`, `configparser`, `json`, `poplib`, `email` 등은 표준 라이브러리이므로 별도 설치 없이 동작한다. 6편 POP3·MIME 파싱에 쓴다.
+`subprocess`, `configparser`, `json`, `poplib`, `email` 등은 표준 라이브러리이므로 별도 설치 없이 동작한다. 6편 POP3·MIME 파싱, 9편 TSV 읽기에 쓴다.
 
 ---
 
@@ -63,7 +65,7 @@ python monitor.py
 ```
 
 2편에서 AWS CLI를 호출하는 스니펫은 Python 외에 [AWS CLI](https://aws.amazon.com/cli/)가 설치되어 있고 `aws configure`로 자격 증명이 등록되어 있어야 한다.
-4·5·6편은 해당 편에서 안내하는 패키지·환경 변수만 추가로 준비하면 된다.
+7편은 Chrome 브라우저가 로컬에 있어야 한다. 2~9편은 해당 편에서 안내하는 패키지·환경 변수만 추가로 준비하면 된다.
 
 ---
 
@@ -94,3 +96,4 @@ set MAIL_PW_user_example_com=your_password
 | `python` 명령 없음 | PATH 설정 후 터미널 재시작 |
 | `ModuleNotFoundError` | venv 활성화 + `pip install` |
 | AWS CLI 오류 | `aws lightsail get-instances`로 권한 확인 |
+| Selenium 오류 | Chrome 설치, `webdriver-manager` 버전 확인 |
