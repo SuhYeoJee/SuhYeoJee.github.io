@@ -3,6 +3,7 @@ title: Python 배치·모니터링 패턴 개요
 description: ""
 date: 2026-06-18T10:30:00.000Z
 preview: ""
+draft: true
 tags:
     - Python
     - 자동화
@@ -22,6 +23,8 @@ Python으로 서버·인프라를 다루는 스크립트는 대부분 같은 골
 
 - **2편** — AWS Lightsail CPU 메트릭 조회와 임계값 알림
 - **3편** — SSH + certbot 기반 HTTPS 인증서 자동화
+
+블로그용 스니펫은 전부 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.
 
 아래 스니펫은 이후 글에서 반복 등장하는 기본 블록이다.
 
@@ -168,7 +171,8 @@ if token:
 
 ---
 
-# 다음
+# 안 쓸 것
 
-- [2편: AWS CPU 모니터링](./02-aws-cpu-monitor.md)
-- [3편: HTTPS 인증서 배치 자동화](./03-https-cert-automation.md)
+- 클라이언트·서비스 이름, 실제 운영 URL·IP
+- 비공개 repo 코드
+- 실제 API 토큰·SSH 키·계정 정보

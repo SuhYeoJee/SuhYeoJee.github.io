@@ -3,6 +3,7 @@ title: HTTPS 인증서 배치 자동화
 description: ""
 date: 2026-06-18T11:30:00.000Z
 preview: ""
+draft: true
 tags:
     - Python
     - HTTPS
@@ -18,6 +19,7 @@ series: ["Python 자동화 아카이브"]
 
 여러 서버·도메인에 Let's Encrypt 인증서를 발급·갱신할 때, SSH로 원격 명령을 실행하는 오케스트레이션 패턴이다.
 CPU 모니터링(2편)과 같은 **목록 + 루프** 골격이지만, SSH로 서버 설정을 변경하므로 실패 시 HTTPS 중단으로 이어질 수 있다.
+예제 도메인·IP는 `example.com` 등 데모용이며, 실서비스 값은 넣지 않는다.
 
 ---
 
@@ -175,10 +177,3 @@ if code != 0:
 | 성격 | 읽기 | 쓰기 |
 | 실패 영향 | 알림 누락 | HTTPS 중단 가능 |
 | 로컬 테스트 | 가짜 CPU 함수로 대체 | 서버에서 `certbot --dry-run` 필수 |
-
----
-
-# 다음
-
-- [2편: AWS CPU 모니터링](./02-aws-cpu-monitor.md)
-- [시리즈 README](../README.md)

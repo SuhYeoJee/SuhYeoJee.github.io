@@ -3,6 +3,7 @@ title: AWS Lightsail CPU 모니터링
 description: ""
 date: 2026-06-18T11:00:00.000Z
 preview: ""
+draft: true
 tags:
     - Python
     - AWS
@@ -19,6 +20,7 @@ series: ["Python 자동화 아카이브"]
 AWS Lightsail은 `get-instance-metric-data` API로 `CPUUtilization` 메트릭을 제공한다.
 
 1편에서 다룬 **설정 → 순회 → 외부 호출 → 알림 → 반복** 골격에 AWS CLI 호출이 들어간 형태다.
+예제의 서버 이름·IP는 데모용이며, 실서비스 값은 넣지 않는다.
 
 ---
 
@@ -208,10 +210,3 @@ AWS IAM에는 `lightsail:GetInstanceMetricData` 권한이 필요하다.
 - EC2는 CloudWatch, Lightsail은 자체 메트릭 API — 인스턴스 종류에 맞는 엔드포인트를 써야 한다
 - CPU 알림에는 Average보다 Maximum이 스파이크 감지에 유리하다
 - boto3 `client("lightsail").get_instance_metric_data()`로 동일 작업을 SDK로도 수행할 수 있다
-
----
-
-# 다음
-
-- [3편: HTTPS 인증서 배치 자동화](./03-https-cert-automation.md)
-- [1편: 패턴 개요](./01-series-intro.md)

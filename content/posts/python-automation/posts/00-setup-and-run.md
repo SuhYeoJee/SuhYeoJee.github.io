@@ -3,6 +3,7 @@ title: Python 환경 설정 (시리즈 0편)
 description: ""
 date: 2026-06-18T10:00:00.000Z
 preview: ""
+draft: true
 tags:
     - Python
     - Setup
@@ -15,7 +16,7 @@ series: ["Python 자동화 아카이브"]
 # 개요
 
 이 시리즈는 별도 예제 프로젝트 없이, 각 글 본문의 코드 블록을 복사해 실행하는 방식이다.
-2편·3편 스니펫을 돌리기 위한 최소 환경만 정리한다.
+2편·3편 스니펫을 돌리기 위한 최소 환경만 정리한다. 데모용 호스트·도메인만 사용한다.
 
 ---
 
@@ -85,10 +86,3 @@ set SSH_KEY_PATH=C:\path\to\key.pem
 | `python` 명령 없음 | PATH 설정 후 터미널 재시작 |
 | `ModuleNotFoundError` | venv 활성화 + `pip install` |
 | AWS CLI 오류 | `aws lightsail get-instances`로 권한 확인 |
-
----
-
-# 다음
-
-- [1편: 배치·모니터링 패턴 개요](./01-series-intro.md)
-- [2편: AWS CPU 모니터링](./02-aws-cpu-monitor.md)
