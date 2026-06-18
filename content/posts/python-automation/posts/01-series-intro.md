@@ -25,11 +25,11 @@ Python으로 서버·인프라를 다루는 스크립트는 대부분 같은 골
 - **3편** — SSH + certbot 기반 HTTPS 인증서 자동화
 - **4편** — Google Play 앱 메트릭·리뷰 수집
 - **5편** — LLM API 배치 텍스트 변환
-- **6편** — POP3 메일 수집과 DB 저장
+- **6편** — POP3 메일 읽기와 MIME 파싱
 - **7편** — Selenium 기반 검색 순위(SERP) 모니터링
 - **8편** — HTTP·BeautifulSoup 검색 순위 조회
 - **9편** — TSV 입력 채널과 DB 증분 적재
-- **10편** — Selenium + multiprocessing 병렬 처리
+- **10편** — Selenium 멀티프로세싱 (Pool·wrapper·worker)
 - **11편** — subprocess 격리·timeout·재시도
 - **12편** — HTTP DB 프록시·요청 서명
 - **13편** — PyAutoGUI 데스크톱 입력 자동화
@@ -180,14 +180,14 @@ if token:
 | 3 | HTTPS 자동화 | SSH, certbot |
 | 4 | Play 메트릭 | google-play-scraper, DB |
 | 5 | LLM 배치 변환 | OpenAI API, 청크·후처리 |
-| 6 | 메일 수집 | POP3, MIME, DB |
+| 6 | 메일 파싱 | POP3, MIME, 헤더 디코딩 |
 | 7 | SERP (Selenium) | WebDriver, CSS 셀렉터 |
 | 8 | SERP (HTTP) | requests, BeautifulSoup, Pool |
 | 9 | TSV 입력 | 증분 INSERT, ingest 폴더 |
-| 10 | Selenium 병렬 | Pool, wrapper·worker, 청크 |
+| 10 | Selenium 병렬 | Pool, wrapper·worker, 청크 (범용) |
 | 11 | subprocess 격리 | Popen, timeout, worker 분리 |
 | 12 | HTTP DB 프록시 | 서명, SELECT 페이징, upsert |
-| 13 | 데스크톱 입력 | PyAutoGUI, IME·클립보드 |
+| 13 | 데스크톱 입력 | PyAutoGUI, 클립보드 붙여넣기 |
 
 ---
 

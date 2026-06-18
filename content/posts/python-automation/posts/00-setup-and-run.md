@@ -80,12 +80,13 @@ set TELEGRAM_BOT_TOKEN=your_token
 set TELEGRAM_CHAT_ID=your_chat_id
 set SSH_KEY_PATH=C:\path\to\key.pem
 set OPENAI_API_KEY=your_key
-set MAIL_PW_user_example_com=your_password
+set MAIL_USER=user@example.com
+set MAIL_PASSWORD=your_password
 set API_SALT=your_api_salt
 ```
 
 - `OPENAI_API_KEY` — 5편 LLM 호출
-- `MAIL_PW_<계정>` — 6편 POP3 비밀번호 (`user@example.com` → `MAIL_PW_user_example_com` 형태)
+- `MAIL_USER`, `MAIL_PASSWORD` — 6편 POP3 데모 접속 (선택)
 - `API_SALT` — 12편 HTTP DB API 요청 서명
 
 코드 쪽에서는 `os.getenv()`로 읽으며, 변수가 없으면 해당 기능(알림, SSH 등)만 건너뛰도록 설계한다.

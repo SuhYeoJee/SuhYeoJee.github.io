@@ -8,7 +8,6 @@ tags:
     - Python
     - Selenium
     - multiprocessing
-    - 크롤링
 categories:
     - Manual
 series: ["Python 자동화 아카이브"]
@@ -18,24 +17,25 @@ series: ["Python 자동화 아카이브"]
 
 Selenium WebDriver는 **프로세스마다 인스턴스를 하나** 두는 것이 안전하다. 드라이버를 스레드 간에 공유하면 세션이 꼬이고, 한 프로세스에 여러 드라이버를 동시에 띄우면 메모리 부담이 크다.
 
-이 글은 **Pool + wrapper + worker** 구조로, 워커 프로세스당 드라이버 1개를 만들고 입력 청크를 나눠 처리하는 패턴을 정리한다.
-7편은 순차 Selenium, 8편은 HTTP multiprocessing이며, **JS 렌더링이 필요하면서 병렬**이 필요할 때 이 패턴을 쓴다.
+이 글은 **Pool + wrapper + worker** 구조로, 워커 프로세스당 드라이버 1개를 만들고 URL·작업 목록을 청크로 나눠 처리하는 **병렬 브라우저 자동화** 패턴을 정리한다.
+순차 Selenium(한 컨트롤러로 목록 순회)과 달리, **입력이 많고 프로세스 격리가 필요할 때** 쓴다.
+
 예제 URL·입력은 데모용이며, 실서비스 값은 넣지 않는다.
 블로그용 스니펫은 전부 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.
-실제 사이트 자동화 시 robots·이용 약관은 7편 주의사항을 따른다.
+자동화 대상 사이트의 **이용 약관·robots**를 먼저 확인한다.
 
 ---
 
 # 처리 흐름
 
 ```
-input 목록
+input 목록 (URL·키 등)
     ↓
 코어 수·청크 크기 계산 → input_data_lst (프로세스별 묶음)
     ↓
 Pool.apply_async(wrapper_func, chunk)  × N
     ↓
-각 프로세스: get_driver() → worker 반복 → driver.quit()
+각 프로세스: create_driver() → worker 반복 → driver.quit()
     ↓
 메인: async 결과 수집 → idx 기준 dict 병합 → 출력
 ```
@@ -44,14 +44,16 @@ Pool.apply_async(wrapper_func, chunk)  × N
 
 ---
 
-# 7·8편과 비교
+# 순차 vs 병렬 Selenium
 
-| | 7편 순차 Selenium | 8편 HTTP Pool | 10편 (현재) |
-|--|-------------------|---------------|-------------|
-| 브라우저 | 1개 순회 | 없음 | 프로세스당 1개 |
-| 병렬 | 없음 | `imap_unordered` | `apply_async` + 청크 |
-| 메모리 | 낮음 | 낮음 | 코어 수 × Chrome |
-| 적합 | 소량·안정 우선 | 정적 HTML | JS 필요 + 대량 |
+| | 순차 (드라이버 1개) | 병렬 (현재) |
+|--|---------------------|-------------|
+| 브라우저 | 1개 순회 | 프로세스당 1개 |
+| 병렬 | 없음 | `apply_async` + 청크 |
+| 메모리 | 낮음 | 코어 수 × Chrome |
+| 적합 | 소량·안정 우선 | 대량·격리 필요 |
+
+HTTP만으로 처리 가능하면 `requests` + `multiprocessing.Pool`(8편)이 가볍다. **JS 렌더링이 필요한 작업**만 Selenium을 고른다.
 
 ---
 
@@ -114,15 +116,15 @@ def build_input_chunks(input_lst: list[str], max_data_cnt: int, multi_cnt: int):
 
 # worker · wrapper 분리
 
-- **worker** — 드라이버와 한 줄 입력으로 실제 작업 (7편 `find_rank`에 해당)
+- **worker** — 드라이버와 한 줄 입력으로 실제 작업
 - **wrapper** — 프로세스 안에서 드라이버 생성, 청크 순회, 예외 시 드라이버 재생성
 
 ```python
 from selenium import webdriver
 
 def worker(driver: webdriver.Chrome, input_line: str) -> str:
-    driver.get(f"https://example.com/item?q={input_line}")
-    # ... DOM 조작 ...
+    driver.get(f"https://example.com/status?id={input_line}")
+    # ... DOM 조작·텍스트 추출 ...
     return input_line  # 데모: 입력 그대로 반환
 
 def wrapper_func(chunk: list[list], meta_data: list) -> dict:
@@ -142,14 +144,14 @@ def wrapper_func(chunk: list[list], meta_data: list) -> dict:
     return results
 ```
 
-한 항목 실패 시 드라이버만 갈아끼우고 재시도한다. 7편 `refresh_driver`와 같은 의도다.
+한 항목 실패 시 드라이버만 갈아끼우고 재시도한다.
 `meta_data`는 공통 설정(URL 템플릿, 셀렉터 dict 등)을 넘길 때 쓴다.
 
 ---
 
 # 드라이버 생성 (프로세스 로컬)
 
-wrapper마다 독립 Chrome을 띄운다. headless·user-agent는 7편과 동일하게 options로 준다.
+wrapper마다 독립 Chrome을 띄운다.
 
 ```python
 from selenium.webdriver.chrome.options import Options
@@ -160,11 +162,8 @@ def create_driver(headless: bool = True) -> webdriver.Chrome:
     options = Options()
     if headless:
         options.add_argument("--headless=new")
-    options.add_argument("--window-position=0,-2000")  # headed 시 화면 밖 배치
-    options.add_argument(
-        "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"
-    )
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     driver.implicitly_wait(10)
@@ -206,8 +205,7 @@ def run_parallel(input_lst: list[str], meta_data: list | None = None) -> dict:
     return merged
 ```
 
-`imap_unordered`(8편)와 달리 **청크 단위**로 묶기 때문에, 프로세스당 드라이버 1개를 유지하기 쉽다.
-`tqdm`으로 `pending` 길이를 모니터링해도 된다.
+청크 단위로 묶기 때문에 프로세스당 드라이버 1개를 유지하기 쉽다.
 
 ---
 
@@ -225,7 +223,7 @@ def write_results(input_lst: list[str], merged: dict) -> None:
             print(f"[{i+1}] OK {line}: {val}")
 ```
 
-오류 행은 `error.txt`에 append하는 식으로 8편과 같이 분리한다.
+오류 행은 `error.txt`에 append해 재실행 대상만 골라낼 수 있다.
 
 ---
 
@@ -250,15 +248,9 @@ if __name__ == "__main__":
 |------|------|
 | 드라이버 수 | `core_cnt` = 동시 Chrome 수. RAM·GPU 여유 확인 |
 | 공유 상태 | 프로세스 간 전역 변수 공유 불가. `meta_data`는 picklable만 |
-| DB 연결 | 프로세스마다 연결을 새로 열거나, 메인에서만 기록 |
+| 외부 기록 | DB·파일 쓰기는 메인 프로세스에서만 하거나 프로세스별 연결 분리 |
 | 좀비 프로세스 | `pool.close()` + `join()` 필수. wrapper에서 `driver.quit()` |
 | 디버깅 | 멀티보다 단일 wrapper·단일 worker로 먼저 검증 |
-
----
-
-# 7편과 합치기
-
-7편 `find_rank(driver, keyword, url)`을 `worker`에 넣고, `targets.txt`를 `input_lst`로 읽으면 SERP 순위 배치를 병렬화할 수 있다.
-9편 DB `targets` 테이블에서 `SELECT`한 목록을 `input_lst`로 쓰는 파이프라인도 동일하다.
+| 약관 | 과도한 요청·허용 범위 밖 자동화 금지 |
 
 ---

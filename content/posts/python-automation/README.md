@@ -16,7 +16,7 @@ Python 배치·모니터링 스크립트의 **설계 패턴과 인프라 연동*
 | 3 | [HTTPS 인증서 배치 자동화](./posts/03-https-cert-automation.md) | 초안 |
 | 4 | [Google Play 앱 메트릭 수집](./posts/04-google-play-app-scraping.md) | 초안 |
 | 5 | [LLM 배치 텍스트 변환](./posts/05-llm-text-batch-transform.md) | 초안 |
-| 6 | [POP3 메일 수집과 DB 저장](./posts/06-email-pop3-db-pipeline.md) | 초안 |
+| 6 | [POP3 메일 읽기와 MIME 파싱](./posts/06-email-pop3-db-pipeline.md) | 초안 |
 | 7 | [Selenium 검색 순위 모니터링](./posts/07-selenium-serp-rank-monitoring.md) | 초안 |
 | 8 | [HTTP 기반 검색 순위 조회](./posts/08-http-serp-rank-monitoring.md) | 초안 |
 | 9 | [TSV 입력 채널과 DB 증분 적재](./posts/09-tsv-incremental-db-ingest.md) | 초안 |
