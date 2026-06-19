@@ -1,9 +1,9 @@
 ---
-title: Flutter 듀얼 WebView — 컨트롤러 두 개짜리 셸 변형
+title: Flutter WebView — 듀얼 WebView (컨트롤러 두 개)
 description: ""
 date: 2026-06-16T14:00:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Flutter
     - webview_flutter

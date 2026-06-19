@@ -3,7 +3,7 @@ title: Flutter WebView — inappwebview에서 webview_flutter로
 description: ""
 date: 2026-06-16T18:00:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Flutter
     - flutter_inappwebview

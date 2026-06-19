@@ -3,7 +3,7 @@ title: Flutter WebView — 앱 복습
 description: ""
 date: 2026-06-16T10:00:00.000Z
 preview: ""
-draft: true
+draft: false
 tags:
     - Flutter
     - WebView
@@ -22,6 +22,8 @@ series: ["Flutter WebView 앱"]
 이 글은 그 경험을 정리하는 시리즈 1편이다.
 
 블로그용 예제는 전부 새로 작성했으며, 비공개 프로젝트 소스는 포함하지 않는다.
+
+> **면책** — 학습·설계 패턴 공유 목적이다. 예제는 데모 HTML·placeholder URL만 사용한다. **본인이 관리·배포 권한이 있는 앱**에만 적용하고, Play 정책·Firebase·AdMob 약관을 준수한다.
 
 ---
 
