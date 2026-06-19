@@ -1,7 +1,7 @@
 ---
-title: TSV 입력 채널과 DB 증분 적재
+title: Python — TSV 입력 채널과 DB 증분 적재
 description: ""
-date: 2026-06-20T11:00:00.000Z
+date: 2026-06-18T14:30:00.000Z
 preview: ""
 draft: false
 tags:

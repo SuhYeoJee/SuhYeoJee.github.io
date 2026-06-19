@@ -1,7 +1,7 @@
 ---
-title: Selenium 검색 순위 모니터링
+title: Python — Selenium 검색 순위 모니터링
 description: ""
-date: 2026-06-20T10:00:00.000Z
+date: 2026-06-18T13:30:00.000Z
 preview: ""
 draft: true
 tags:

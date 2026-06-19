@@ -1,7 +1,7 @@
 ---
-title: Selenium 멀티프로세싱 패턴
+title: Python — Selenium 멀티프로세싱 패턴
 description: ""
-date: 2026-06-20T11:30:00.000Z
+date: 2026-06-18T15:00:00.000Z
 preview: ""
 draft: false
 tags:

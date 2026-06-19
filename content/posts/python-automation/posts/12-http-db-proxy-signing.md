@@ -1,7 +1,7 @@
 ---
-title: HTTP DB 프록시와 요청 서명
+title: Python — HTTP DB 프록시와 요청 서명
 description: ""
-date: 2026-06-21T10:30:00.000Z
+date: 2026-06-18T16:00:00.000Z
 preview: ""
 draft: false
 tags:

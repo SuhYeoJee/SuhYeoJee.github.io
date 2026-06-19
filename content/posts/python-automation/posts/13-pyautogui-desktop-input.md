@@ -1,7 +1,7 @@
 ---
-title: PyAutoGUI 데스크톱 입력 자동화
+title: Python — PyAutoGUI 데스크톱 입력 자동화
 description: ""
-date: 2026-06-21T11:00:00.000Z
+date: 2026-06-18T16:30:00.000Z
 preview: ""
 draft: false
 tags:

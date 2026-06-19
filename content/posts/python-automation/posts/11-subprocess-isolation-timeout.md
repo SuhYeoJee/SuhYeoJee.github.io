@@ -1,7 +1,7 @@
 ---
-title: subprocess 격리와 timeout
+title: Python — subprocess 격리와 timeout
 description: ""
-date: 2026-06-21T10:00:00.000Z
+date: 2026-06-18T15:30:00.000Z
 preview: ""
 draft: false
 tags:

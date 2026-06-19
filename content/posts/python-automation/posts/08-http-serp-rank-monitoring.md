@@ -1,7 +1,7 @@
 ---
-title: HTTP 기반 검색 순위 조회
+title: Python — HTTP 기반 검색 순위 조회
 description: ""
-date: 2026-06-20T10:30:00.000Z
+date: 2026-06-18T14:00:00.000Z
 preview: ""
 draft: true
 tags:

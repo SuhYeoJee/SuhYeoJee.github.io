@@ -1,5 +1,5 @@
 ---
-title: Flutter WebView 앱 복습
+title: Flutter WebView — 앱 복습
 description: ""
 date: 2026-06-16T10:00:00.000Z
 preview: ""

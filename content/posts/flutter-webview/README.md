@@ -18,8 +18,8 @@
 
 |---|------|------|------|
 
-| 0 | [Flutter 설치와 예제 실행](./posts/00-setup-and-run.md) | — | 초안 |
-| 1 | [Flutter WebView 앱 복습](./posts/01-series-intro.md) | — | 초안 |
+| 0 | [Flutter — 설치와 예제 실행](./posts/00-setup-and-run.md) | — | 초안 |
+| 1 | [Flutter WebView — 앱 복습](./posts/01-series-intro.md) | — | 초안 |
 
 | 2 | [Flutter WebView 기본 — 툴바와 뒤로가기](./posts/02-basic-webview.md) | [01_basic_webview](./examples/01_basic_webview/) | 초안 |
 
@@ -65,4 +65,4 @@ examples/
 
 - 실행 가능한 최소 단위로 분리
 
-
+- 포스트 제목은 `Flutter` / `Flutter WebView — …` 접두로 통일

@@ -1,7 +1,7 @@
 ---
-title: Google Play 앱 메트릭 수집
+title: Python — Google Play 앱 메트릭 수집
 description: ""
-date: 2026-06-19T10:00:00.000Z
+date: 2026-06-18T12:00:00.000Z
 preview: ""
 draft: true
 tags:

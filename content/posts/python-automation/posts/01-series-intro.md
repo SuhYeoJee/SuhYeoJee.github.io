@@ -1,5 +1,5 @@
 ---
-title: Python 배치·모니터링 패턴 개요
+title: Python — 배치·모니터링 패턴 개요
 description: ""
 date: 2026-06-18T10:30:00.000Z
 preview: ""

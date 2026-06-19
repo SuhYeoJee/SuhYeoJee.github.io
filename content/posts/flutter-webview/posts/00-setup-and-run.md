@@ -1,5 +1,5 @@
 ---
-title: Flutter 설치와 예제 실행 (시리즈 0편)
+title: Flutter — 설치와 예제 실행
 description: ""
 date: 2026-06-16T09:55:00.000Z
 preview: ""
